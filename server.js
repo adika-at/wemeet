@@ -77,7 +77,7 @@ const server = http.createServer(async (req, res) => {
   const ip = getIp(req);
  
   if (req.method === 'GET' && (req.url === '/' || req.url === '/index.html')) {
-    return fs.readFile(path.join(__dirname, 'public', 'index.html'), (e, buf) => {
+    return fs.readFile(path.join(__dirname, 'index.html'), (e, buf) => {
       if (e) { res.writeHead(500); return res.end('Missing public/index.html'); }
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(buf);
